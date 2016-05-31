@@ -137,6 +137,6 @@
           (cl:*standard-output*)
           (cl:let ((cl:*print-readably* cl:nil))
                   (sb-disassem:disassemble-code-component
-                   (cl:eval (cl:read-from-string ,(slime-definition-at-point t)))))))))
+                   (cl:eval (cl:read-from-string ,(slime-definition-at-point t))))))))))
 
-  (load-slime)))
+  (load-slime))
