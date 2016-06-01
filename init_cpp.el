@@ -50,7 +50,7 @@
   (add-to-list 'ac-sources 'ac-source-semantic))
 (add-hook 'c-mode-common-hook 'my-c-mode-cedet-hook)
 
-;; (load-file "ede_projects.el")
+(load-file "ede_projects.el")
 
 (my-require-and-eval (yasnippet nil yasnippet)
   (eval-after-load "yasnippet"

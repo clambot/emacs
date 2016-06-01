@@ -2,6 +2,7 @@ auto-save-list
 ede_projects.el
 ede-projects.el
 elpa
+init_custom.el
 saves
 server
 session
