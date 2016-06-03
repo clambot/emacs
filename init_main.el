@@ -52,6 +52,14 @@
 (my-require-and-eval (evil nil evil)
    (evil-mode 1))
 
+(my-require-and-eval (auto-complete-config)
+  (ac-config-default))
+
+(my-require-and-eval
+ (smex nil smex)
+ (global-set-key (kbd "M-x") 'smex)
+ (global-set-key (kbd "M-X") 'smex-major-mode-commands))
+
 ;;; Write backup in ~/.saves
 (setq
  backup-by-copying t                    ; don't clobber symlinks
