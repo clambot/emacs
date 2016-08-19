@@ -6,3 +6,5 @@
  tags-revert-without-query t)
 
 (my-require-and-eval (nxml-mode nxml))
+
+(my-require-and-eval (cmake-mode nil cmake-mode))

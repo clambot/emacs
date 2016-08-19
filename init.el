@@ -8,6 +8,6 @@
 
 (load (format "%s/functions.el" +my-emacs-config-dir+))
 
-(my-load-init '(package iface server main auto_complete misc lang tramp custom))
+(my-load-init '(package iface server main auto_complete misc lang tramp custom eshell))
 
 ;; (my-load-init '(exwm))

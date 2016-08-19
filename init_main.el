@@ -42,7 +42,7 @@
 (setq-default delete-trailing-whitespace t)
 
 (blink-cursor-mode 0)
-(ido-mode 'buffer)
+(ido-mode t)
 (winner-mode 1)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -52,11 +52,10 @@
 (my-require-and-eval (evil nil evil)
    (evil-mode 1))
 
-(my-require-and-eval (auto-complete-config)
-  (ac-config-default))
+;; (my-require-and-eval (auto-complete-config)
+;;   (ac-config-default))
 
-(my-require-and-eval
- (smex nil smex)
+(my-require-and-eval (smex nil smex)
  (global-set-key (kbd "M-x") 'smex)
  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
 
@@ -146,3 +145,6 @@
 ;;   (start-process "browser" nil "browser" url))
 
 (global-hi-lock-mode 1)
+
+(my-require-and-eval (xah-replace-pairs nil xah-replace-pairs))
+(my-require-and-eval (magit nil magit))

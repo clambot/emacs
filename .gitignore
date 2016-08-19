@@ -8,3 +8,6 @@ server
 session
 snippets
 tramp
+/ac-comphist.dat
+/smex-items
+/eshell/
