@@ -32,8 +32,14 @@ length of PATH (sans directory slashes) down to MAX-LEN."
          (fish-path (eshell/pwd) 20)
          (if (= (user-uid) 0) " $ " " # "))))
 
-(eshell/alias "e" "find-file $1")
-(eshell/alias "d" "dired $1")
-(eshell/alias "ll" "ls -al $1")
-(eshell/alias "lr" "ls -lrt $1")
-(eshell/alias "new" "(eshell 'z)")
+(my-require-and-eval (em-alias)
+ (eshell/alias "e" "find-file $1")
+ (eshell/alias "d" "dired $1")
+ (eshell/alias "ll" "ls -al $1")
+ (eshell/alias "lr" "ls -lrt $1")
+ (eshell/alias "new" "(eshell 'z)"))
+
+(add-hook 'eshell-mode-hook
+          #'(lambda ()
+              (setq eshell-path-env (concat "/tools/smi/apps/bin:" eshell-path-env))
+              (setenv "PATH" (concat "/tools/smi/apps/bin:" (getenv "PATH")))))
