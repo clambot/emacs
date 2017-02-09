@@ -10,4 +10,5 @@
 
 (my-load-init '(package iface server main auto_complete misc lang tramp custom eshell))
 
-;; (my-load-init '(exwm))
+(my-load-init '(exwm))
+(put 'narrow-to-page 'disabled nil)

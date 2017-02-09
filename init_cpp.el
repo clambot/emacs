@@ -28,6 +28,7 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+(setq semantic-idle-scheduler-idle-time 10)
 
 (semantic-mode t)
 
@@ -55,6 +56,6 @@
 (my-require-and-eval (yasnippet nil yasnippet)
   (eval-after-load "yasnippet"
     '(progn
-       (setq yas-snippet-dirs (expand-file-name "snippets" +my-emacs-config-dir+))
+      (setq yas-snippet-dirs (list (expand-file-name "snippets" +my-emacs-config-dir+)))
        (yas-reload-all)))
   (yas-global-mode 1))

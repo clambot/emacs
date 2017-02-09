@@ -52,8 +52,8 @@
 (my-require-and-eval (evil nil evil)
    (evil-mode 1))
 
-;; (my-require-and-eval (auto-complete-config)
-;;   (ac-config-default))
+(my-require-and-eval (auto-complete-config)
+  (ac-config-default))
 
 (my-require-and-eval (smex nil smex)
  (global-set-key (kbd "M-x") 'smex)
@@ -148,3 +148,4 @@
 
 (my-require-and-eval (xah-replace-pairs nil xah-replace-pairs))
 (my-require-and-eval (magit nil magit))
+(push "/tools/smi/apps/bin" exec-path)

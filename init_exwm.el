@@ -2,15 +2,18 @@
 (add-to-list 'load-path "/usr/share/emacs/xelb/")
 (add-to-list 'load-path "/usr/share/emacs/exwm/")
 
-                                        ;(setq exwm-debug-on t)
+;; (setq exwm-debug-on t)
 (require 'exwm)
 ;; Fix problems with Ido
 (require 'exwm-config)
 (exwm-config-ido)
 ;; (exwm-config-default)
 
-(exwm-input-set-key (kbd "s-r") #'exwm-reset)
+
+(exwm-input-set-key (kbd "<s-f5>") #'exwm-reset)
 (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+
+(setq exwm-workspace-number 10)
 
 (exwm-input-set-key (kbd "s-0")
                     (lambda () (interactive) (exwm-workspace-switch 0)))
@@ -33,7 +36,7 @@
 (exwm-input-set-key (kbd "s-9")
                     (lambda () (interactive) (exwm-workspace-switch 9)))
 
-(exwm-input-set-key (kbd "s-&")
+(exwm-input-set-key (kbd "s-r")
                     (lambda (command)
                       (interactive (list (read-shell-command "$ ")))
                       (start-process-shell-command command nil command)))
@@ -71,14 +74,23 @@
 (exwm-systemtray-enable)
 
 (require 'exwm-randr)
-(setq exwm-randr-workspace-output-plist '(1 "HDMI1" 2 "HDMI1" 3 "LVDS1" 4 "LVDS1"))
+(setq exwm-randr-workspace-output-plist '(1 "HDMI1" 2 "HDMI1" 3 "LVDS1" 4 "LVDS1" 5 "HDMI1"))
 (add-hook 'exwm-randr-screen-change-hook
           (lambda ()
             (start-process-shell-command
              "xrandr" nil "xrandr --output HDMI1 --primary --mode 1920x1080 --pos 1440x0 --output LVDS1 --mode 1440x900 --pos 0x180")))
 (exwm-randr-enable)
 
-(exwm-enable)
-
 ;; (exwm-input-set-key (kbd "s-<Scroll_Lock>")
 ;;                     (lambda () (interactive) (start-process "" nil "xlock")))
+
+;; You can hide the mode-line of floating X windows by uncommenting the
+;; following lines
+(add-hook 'exwm-floating-setup-hook #'exwm-layout-hide-mode-line)
+(add-hook 'exwm-floating-exit-hook #'exwm-layout-show-mode-line)
+
+;; You can hide the minibuffer and echo area when they're not used, by
+;; uncommenting the following line
+(setq exwm-workspace-minibuffer-position 'bottom)
+
+(exwm-enable)
