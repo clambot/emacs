@@ -147,5 +147,6 @@
 (global-hi-lock-mode 1)
 
 (my-require-and-eval (xah-replace-pairs nil xah-replace-pairs))
-(my-require-and-eval (magit nil magit))
-(push "/tools/smi/apps/bin" exec-path)
+;; (my-require-and-eval (magit nil magit))
+(setenv "PATH" (concat (getenv "PATH") ":~/bin"))
+(setq exec-path (append exec-path '("~/bin")))

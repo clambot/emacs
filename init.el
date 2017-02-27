@@ -8,7 +8,7 @@
 
 (load (format "%s/functions.el" +my-emacs-config-dir+))
 
-(my-load-init '(package iface server main auto_complete misc lang tramp custom eshell))
+(my-load-init '(proxy package iface server main auto_complete misc lang tramp custom eshell buffer))
 
 (my-load-init '(exwm))
 (put 'narrow-to-page 'disabled nil)

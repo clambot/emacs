@@ -42,16 +42,16 @@
   (imenu-add-to-menubar "TAGS"))
 (add-hook 'semantic-init-hooks 'my-semantic-hook)
 
-(global-ede-mode t)
-(require 'ede/generic)
-(ede-enable-generic-projects)
+;; (global-ede-mode t)
+;; (require 'ede/generic)
+;; (ede-enable-generic-projects)
 
 (defun my-c-mode-cedet-hook ()
   (add-to-list 'ac-sources 'ac-source-gtags)
   (add-to-list 'ac-sources 'ac-source-semantic))
-(add-hook 'c-mode-common-hook 'my-c-mode-cedet-hook)
+;; (add-hook 'c-mode-common-hook 'my-c-mode-cedet-hook)
 
-(load-file (format "%s/ede_projects.el" +my-emacs-config-dir+))
+;; (load-file (format "%s/ede_projects.el" +my-emacs-config-dir+))
 
 (my-require-and-eval (yasnippet nil yasnippet)
   (eval-after-load "yasnippet"

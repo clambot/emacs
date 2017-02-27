@@ -1,6 +1,6 @@
 ;;; exwm
-(add-to-list 'load-path "/usr/share/emacs/xelb/")
-(add-to-list 'load-path "/usr/share/emacs/exwm/")
+;;(add-to-list 'load-path "/usr/share/emacs/xelb/")
+;;(add-to-list 'load-path "/usr/share/emacs/exwm/")
 
 ;; (setq exwm-debug-on t)
 (require 'exwm)
@@ -12,6 +12,7 @@
 
 (exwm-input-set-key (kbd "<s-f5>") #'exwm-reset)
 (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+(exwm-input-set-key (kbd "s-k") #'exwm-input-toggle-keyboard)
 
 (setq exwm-workspace-number 10)
 
@@ -73,13 +74,13 @@
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)
 
-(require 'exwm-randr)
-(setq exwm-randr-workspace-output-plist '(1 "HDMI1" 2 "HDMI1" 3 "LVDS1" 4 "LVDS1" 5 "HDMI1"))
-(add-hook 'exwm-randr-screen-change-hook
-          (lambda ()
-            (start-process-shell-command
-             "xrandr" nil "xrandr --output HDMI1 --primary --mode 1920x1080 --pos 1440x0 --output LVDS1 --mode 1440x900 --pos 0x180")))
-(exwm-randr-enable)
+;; (require 'exwm-randr)
+;; (setq exwm-randr-workspace-output-plist '(1 "HDMI1" 2 "HDMI1" 3 "LVDS1" 4 "LVDS1" 5 "HDMI1"))
+;; (add-hook 'exwm-randr-screen-change-hook
+;;           (lambda ()
+;;             (start-process-shell-command
+;;              "xrandr" nil "xrandr --output HDMI1 --primary --mode 1920x1080 --pos 1440x0 --output LVDS1 --mode 1440x900 --pos 0x180")))
+;; (exwm-randr-enable)
 
 ;; (exwm-input-set-key (kbd "s-<Scroll_Lock>")
 ;;                     (lambda () (interactive) (start-process "" nil "xlock")))
@@ -91,6 +92,6 @@
 
 ;; You can hide the minibuffer and echo area when they're not used, by
 ;; uncommenting the following line
-(setq exwm-workspace-minibuffer-position 'bottom)
+;(setq exwm-workspace-minibuffer-position 'bottom)
 
 (exwm-enable)
