@@ -13,6 +13,10 @@
 (exwm-input-set-key (kbd "<s-f5>") #'exwm-reset)
 (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
 (exwm-input-set-key (kbd "s-k") #'exwm-input-toggle-keyboard)
+(exwm-input-set-key (kbd "s-<right>") #'windmove-right)
+(exwm-input-set-key (kbd "s-<left>") #'windmove-left)
+(exwm-input-set-key (kbd "s-<up>") #'windmove-up)
+(exwm-input-set-key (kbd "s-<down>") #'windmove-down)
 
 (setq exwm-workspace-number 10)
 
