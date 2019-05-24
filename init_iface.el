@@ -20,6 +20,7 @@
         '(font . "-misc-fixed-medium-r-normal--15-*-*-*-*-*-iso10646-1"))
        default-frame-alist))
 
+(setq popup-use-optimized-column-computation nil)
 (setq initial-frame-alist default-frame-alist)
 (setq special-display-frame-alist default-frame-alist)
 

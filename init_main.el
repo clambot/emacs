@@ -94,28 +94,28 @@
   (setq dired-omit-files "^\\..*"
         dired-omit-verbose nil))
 
-(my-require-and-eval (company nil company)
-  (eval-after-load "company"
-    '(progn
-       (add-to-list 'company-begin-commands 'backward-delete-char)
-       (setq
-        company-dabbrev-ignore-case t
-        company-dabbrev-code-ignore-case t
-        company-dabbrev-downcase nil
-        company-minimum-prefix-length 2
-        ;;something universally applied
-        company-backends '((company-capf
-                            :with
-                            company-dabbrev-code
-                            company-keywords)
-                           company-dabbrev))
+;; (my-require-and-eval (company nil company)
+;;   (eval-after-load "company"
+;;     '(progn
+;;        (add-to-list 'company-begin-commands 'backward-delete-char)
+;;        (setq
+;;         company-dabbrev-ignore-case t
+;;         company-dabbrev-code-ignore-case t
+;;         company-dabbrev-downcase nil
+;;         company-minimum-prefix-length 2
+;;         ;;something universally applied
+;;         company-backends '((company-capf
+;;                             :with
+;;                             company-dabbrev-code
+;;                             company-keywords)
+;;                            company-dabbrev))
 
-       ;; using it instead of `company-complete-common'
-       (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
-       ;; getting the normal 'C-w' behaviour back
-       (define-key company-active-map (kbd "C-w") nil)
-       ;; not turning it on until the first usage (is it ok?)
-       (global-company-mode))))
+;;        ;; using it instead of `company-complete-common'
+;;        (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+;;        ;; getting the normal 'C-w' behaviour back
+;;        (define-key company-active-map (kbd "C-w") nil)
+;;        ;; not turning it on until the first usage (is it ok?)
+;;        (global-company-mode))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

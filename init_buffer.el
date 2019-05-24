@@ -27,3 +27,5 @@
 (global-set-key (kbd "C-x <M-left>") 'my-move-buffer-left)
 (global-set-key (kbd "C-x <M-up>") 'my-move-buffer-up)
 (global-set-key (kbd "C-x <M-down>") 'my-move-buffer-down)
+
+;; (windmove-default-keybindings)

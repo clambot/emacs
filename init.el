@@ -8,7 +8,10 @@
 
 (load (format "%s/functions.el" +my-emacs-config-dir+))
 
-(my-load-init '(proxy package iface server main auto_complete misc lang tramp custom eshell buffer))
+(my-load-init '(proxy package iface server main auto_complete misc lang
+                tramp custom eshell ediff buffer w3m))
 
 (my-load-init '(exwm))
+;; (my-load-init '(my-ed))
 (put 'narrow-to-page 'disabled nil)
+(put 'list-threads 'disabled nil)

@@ -37,3 +37,28 @@ Optinally add directory `add-to-path' to `load-path'."
        (car (network-interface-info iface))
      (cdr (cl-find-if-not #'(lambda (x) (string= (car x) "lo")) (network-interface-list))))
    t))
+
+(defun surround-region-and-indent (start end start-text end-text)
+  (save-excursion
+   (let ((rgn-txt (delete-and-extract-region start end))
+         new-end)
+     (save-excursion
+      (goto-char start)
+      (when (/= start (line-beginning-position))
+        (insert "\n"))
+      (insert start-text)
+      (insert rgn-txt)
+      (unless (= (point) (line-beginning-position))
+        (insert "\n"))
+      (insert end-text)
+      (setq new-end (line-end-position)))
+     (beginning-of-line)
+     (indent-region start new-end))))
+
+(defun avx3-comment-region (start end)
+  (interactive "r")
+  (surround-region-and-indent start end "#ifdef HAVE_AVX3\n" "#endif  // HAVE_AVX3\n"))
+
+(defun oncv10-comment-region (start end)
+  (interactive "r")
+  (surround-region-and-indent start end "#if ONC_VERSION == 10\n" "#endif  // ONC_VERSION == 10\n"))
