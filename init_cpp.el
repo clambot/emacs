@@ -14,6 +14,7 @@
               (when (derived-mode-p 'c-mode 'c++-mode)
                 (modify-syntax-entry ?_ "w")
                 (ggtags-mode 1)))))
+
 ;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
 (eval-after-load 'ggtags
   '(progn
@@ -26,7 +27,7 @@
 ;;  (ac-clang-initialize))
 
 (my-require-and-eval
- (fill-column-indicator)
+ (fill-column-indicator nil fill-column-indicator)
  (setq-default fci-rule-column 80)
  (setq fci-rule-width 1)
  (setq fci-rule-color "darkblue"))

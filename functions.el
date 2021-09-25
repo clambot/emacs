@@ -35,7 +35,7 @@ Optinally add directory `add-to-path' to `load-path'."
   (format-network-address
    (if iface
        (car (network-interface-info iface))
-     (cdr (cl-find-if-not #'(lambda (x) (string= (car x) "lo")) (network-interface-list))))
+     (cdr (cl-find-if-not #'(lambda (x) (or (seq-contains '("lo" "docker0") (car x)) (> (length (cdr x)) 5))) (network-interface-list))))
    t))
 
 (defun surround-region-and-indent (start end start-text end-text)
